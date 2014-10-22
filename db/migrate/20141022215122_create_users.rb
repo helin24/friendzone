@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :facebook_id
       t.string :google_id
       t.string :twitter_id
+
+      t.timestamps
     end
   end
 end
