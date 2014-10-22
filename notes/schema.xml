@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: https://socrates.devbootcamp.com/sql.html -->
+QL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: https://socrates.devbootcamp.com/sql -->
 <sql>
 <datatypes db="mysql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -32,7 +31,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="285" y="103" name="users">
+</datatypes><table x="184" y="66" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -58,18 +57,86 @@
 <part>id</part>
 </key>
 </table>
-<table x="582" y="110" name="activities">
+<table x="570" y="67" name="activities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="title" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
 <default>NULL</default></row>
 <row name="description" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="locations" row="id" />
+</row>
+<row name="slots" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="price" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<datatype>ENUM</datatype>
+<default>NULL</default></row>
+<row name="creator_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="created_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="updated_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="starts_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<row name="ends_at" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="373" y="258" name="participations">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="activity_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="activities" row="id" />
+</row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="accepted" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="759" y="129" name="locations">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="address" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="address_2" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="city" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="state" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="zip" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
