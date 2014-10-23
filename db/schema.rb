@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141022221206) do
 
   create_table "participations", force: true do |t|
     t.integer  "activity_id"
-    t.integer  "user_id"
+    t.integer  "participator_id"
     t.boolean  "accepted"
     t.datetime "created_at"
     t.datetime "updated_at"
