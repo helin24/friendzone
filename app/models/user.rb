@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   has_many :participations, foreign_key: :participator_id
   has_many :created_activities, class_name: "Activity", foreign_key: :creator_id
   has_many :participated_activities, through: :participations, source: :activity
+
+  def self.from_omniauth(auth)
+  	puts "auth is #{auth}"
+  end
 end
