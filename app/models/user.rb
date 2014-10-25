@@ -21,6 +21,22 @@ class User < ActiveRecord::Base
   has_many :participated_activities, through: :participations, source: :activity
 
   def self.from_omniauth(auth)
-  	puts "auth is #{auth}"
+  	user_info = auth.extra.raw_info
+  	facebook_account = FacebookAccount.find_by_id(auth.uid)
+  	puts "facebook_account is #{facebook_account}"
+  	if facebook_account
+  		facebook_account.user
+  	else
+  		new_facebook_account = FacebookAccount.create(name: user_info.name, gender: user_info.gender, timezone: user_info.timezone, image: user_info.image)
+  		puts "errors after creation are #{new_facebook_account.errors.inspect}"
+  		new_facebook_account.id = auth.uid
+  		puts "errors after changing id are #{new_facebook_account.errors.inspect}"
+  		user = self.create(name: user_info.name, email: user_info.email, password: "password")
+  		new_facebook_account.user = user
+  		new_facebook_account.save
+  	end
+  	# find facebook account
+  	# if exists then return that
+  	# else create facebook account and create user
   end
 end
