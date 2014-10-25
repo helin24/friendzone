@@ -41,3 +41,4 @@ gem 'bcrypt', '~> 3.1.7'
 # Annotate models with table field names and types
 gem 'annotate'
 
+gem 'omniauth-facebook'
